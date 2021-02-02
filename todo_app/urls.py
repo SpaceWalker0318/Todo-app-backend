@@ -1,8 +1,13 @@
-from django.urls import path
+from django.urls import path, include
+
+from rest_framework.routers import DefaultRouter
 
 from . import views
 
+router = DefaultRouter()
+router.register(r'todo-list', views.TodoList, base_name = 'todo-list')
+
 urlpatterns = [
-    path('', views.apiOverview, name='todo-home'),
-    path('todo-list', views.todoList, name='todo-list')
+    path('', include(router.urls)),
+    path('login/', views.UserLoginApiView.as_view()),
 ]

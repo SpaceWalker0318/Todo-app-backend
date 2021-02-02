@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import *
+from todo_app import models
 
-admin.site.register(UserProfile)
-admin.site.register(TodoItem)
+admin.site.register(models.UserProfile)
+admin.site.register(models.TodoItem)
